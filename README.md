@@ -2,13 +2,15 @@
 #### Video Demo:  <https://youtu.be/-MT5M3EoRMc>
 
 #### Problem:
-My Girlfriend and I, we love to cook. However, there often is pulled the same question: What do we want to cook today.
-There are so many recipes we have already cooked, but do not remember. Or even if we do remember, we can't find them back.
-We tried do create an MS Word based recipe book, but that wasn't quite effective. When I tended to finish the CS50X course I thought this is the ideal opportunity to solve our Problem. I going to create a web app to run it locally and use it in our network.
+My girlfriend and I love to cook. However, the same question often arises: What do we want to cook today? 
+There are so many recipes we have already cooked but don't remember. Even if we do remember, we can't find 
+them. We tried to create an MS Word-based recipe book, but that wasn't very effective. When I was finishing 
+the CS50X course, I thought this was the ideal opportunity to solve our problem. I decided to create a web 
+app to run locally and use in our network.
 
 #### Description:
-FeMaNomNom is a web application to manage cooking recipies in.
-Therefore you can view, add and edit recipies in an SQLite Database via a web based frontend.
+FeMaNomNom is a web application for managing cooking recipes. You can view, add, and edit recipes in an 
+SQLite database via a web-based frontend.
 
 ### What I have done, but is not that obvious:
 - All pictures are selfmade:
