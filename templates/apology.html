@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block main %}
+    <section class="container" id="apology">
+        <!-- https://memegen.link/                         https://api.memegen.link/images/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.webp?background=https://i.imgur.com/4fHR1jO.gif&token=unrr9ttgqdnif4yhhz3x-->
+        <img sytle="width: 100%" alt="{{ top }}" class="border img-fluid" src="https://api.memegen.link/images/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.webp?background=https://i.imgur.com/4fHR1jO.gif&token=unrr9ttgqdnif4yhhz3x" title="{{ top }}">
+    </section>
+    {% endblock %}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeMaNomNom: {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% block setCSS%}
+{% endblock %}
+</head>
+<body>
+    <div class="container">
+    <header>
+        <div class="logo">
+            <a href="/"><img src="/static/src/FM.png" alt="Logo"></a>
+        </div>
+        <div class="navbar-left">
+            <ul>
+                <li class="left"><a href="/">Home</a></li>
+                <li class="left"><a href="/myRecipes">My Recipes</a></li>
+                <li class="left"><a href="/addRecipe">Add Recipe</a></li>
+                <li class="left"><a href="/myFavourites">Favourites</a></li>
+            </ul>   
+        </div>
+        <div class="navbar-right">
+            <ul>
+                <li class="right"><a href="/login">Login</a></li>
+            </ul>
+        </div>
+        <div class="nav_toggle">
+            <i class="bi bi-list"></i>
+        </div>
+
+        <!-- DROPDOWN Navbar -->
+        <div class="dropdown_menu">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/myRecipes">My Recipes</a></li>
+                <li><a href="/addRecipe">Add Recipe</a></li>
+                <li><a href="/myFavourites">Favourites</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </div>
+
+    </header>
+    
+    <!-- Hier würde man einen Jinja Block anlegen-->
+    {% block main%}
+    {% endblock %}
+    <!-- Hier wäre der Jinja Block zu Ende-->
+    <footer>
+        <div class="logo1"><a href="f.schmincke@gmx.de"><i class="bi bi-envelope-fill"></i></a></div>
+        <div class="logo2"><a href="https://www.linkedin.com/in/felix-schmincke-48977223b"><i class="bi bi-linkedin"></i></a></div>
+        <div class="logo3"><a href="https://www.facebook.com/felix.schm.3/"><i class="bi bi-meta"></i></a></div>
+        <div class="description">
+            <p">&copy Copyright Felix Schmincke</p>
+        </div>
+    </footer>
+    </div>
+    <script>
+        const toggleBtn = document.querySelector('.nav_toggle');
+        const toggleBtnIcon = document.querySelector('.nav_toggle i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.addEventListener('click', () => {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open')
+
+            toggleBtnIcon.classList = isOpen
+            ? 'bi bi-x-lg'
+            :'bi bi-list'
+            
+        });
+    </script>
+</body>
+</html>

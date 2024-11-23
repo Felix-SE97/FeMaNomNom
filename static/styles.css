@@ -1,0 +1,606 @@
+/* Statemenst for the */
+input[type="text"], input[type="password"]{
+  font-size: 20px;
+}
+p{
+  
+  font-size: 20px;
+}
+label{
+  font-size: 20px;
+}
+
+body{
+    font-family: arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+:root{
+  --decotation_purple: rgb(226, 72, 119); /* meine Farbe: rgb(190, 0, 165) oder grün: (43, 172, 43)*/ 
+  --margin_top: 30px;
+}
+
+/* General description */
+
+    /* Buttons */
+.btn{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  background-color: var(--decotation_purple);
+  border: 1px solid var(--decotation_purple);
+  color: white;
+  transition: 0.3s ease-out;
+}
+
+.btn:hover{
+  background-color: white;
+  border: 1px solid var(--decotation_purple);
+  color:var(--decotation_purple);
+}
+
+  /* Überschriften: */
+
+h1{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 50px;
+}
+
+h2{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 35px;
+}
+
+
+/* Statements especially the "HOME"-Page */
+    /* Selction Bar */
+    
+    
+    /* Die einzelnen Karten */
+#home{
+  margin-top: var(--margin_top);
+  margin-left: 2px;
+  margin-right: 2px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  grid-gap: 4em 2em;
+}
+.item{
+  border: solid black;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.item img{
+  max-height: 15em;
+  width: 100%;
+  object-fit: cover;
+}
+
+.item h3{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 25px;
+  padding: 3px;
+  margin: 0;
+}
+
+.item p{
+  margin: 0;;
+  padding: 10px;
+  text-align:left;
+}
+
+.starticons{
+  padding: 10px;
+}
+
+#home .btn{
+  display: inline-block;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 1em;
+  text-decoration: none;
+  border-radius: 4px;
+  background-color: var(--decotation_purple);
+  border: 1px solid var(--decotation_purple);
+  color: white;
+}
+
+    /* Statements for the Selectionbar */
+
+
+.filter{
+  font-family: 'Permanent Marker', cursive;
+  margin-top: var(--margin_top);
+  display: flex;
+  justify-content: space-around;
+  font-size: 30px;
+  border: solid rgb(75, 75, 75);
+  border-radius: 15px;
+}
+
+.filter p{
+  margin: 0;
+  padding: 0;
+  font-size: 25px;
+  padding-right: 50px;
+}
+
+.dropdownFilter{
+  transform: translate(0, -15px);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+  padding-top: 30px;
+  border: solid rgb(75, 75, 75);
+  border-top: none;
+  border-end-end-radius: 15px;
+  border-end-start-radius: 15px;
+}
+
+.dropdownFilter.open{
+  display: grid;
+}
+
+#selection button{
+  grid-row-start: 2;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;  
+}
+
+.zeile{
+  display: flex;
+}
+
+/* Statements espesially for the  addRecipe.html */
+#addRecipe .recipe{
+  margin-top: var(--margin_top);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 3fr 7fr;
+  background-color: rgb(255, 190, 130);
+  border: 4px solid black;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+
+#addRecipe .recipe .picture{
+  grid-row: 1 / 1;
+  grid-column: 1 / 5;
+  
+}
+
+#addRecipe .recipe .picture img{
+  width: 100%;
+  height: auto;
+}
+
+#addRecipe .recipe .recipeHead{
+  grid-row: 1 / 1;
+  grid-column: 5 / 11;
+  border-left: 2px solid black;
+  padding: 50px;
+}
+
+#addRecipe .recipe .recipeIngridients{
+  grid-row: 2 / 2;
+  grid-column: 1 / 6;
+  border-top: 2px solid black;
+  padding: 50px;
+}
+
+#addRecipe .recipe .recipePrep{
+  grid-row: 2 / 2;
+  grid-column: 6 / 11;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  padding: 50px;
+}
+
+.addKnoepfe{
+  margin-top: var(--margin_top);
+  display: flex;
+  justify-content:center;
+  
+}
+
+.addKnoepfe div{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+/* Edit Ingridients / Preparations */
+
+.recipeIngri{
+  position: relative;
+}
+.editing{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 96;
+  display: flex;
+  justify-content: center;
+}
+.editing form{
+  position: relative;
+  margin: 400px auto 0 auto;
+  width: 40%;
+}
+
+.editing form input{
+  width: 100%;
+}
+
+
+.editing button{
+  width: 350px;
+  margin: 10px auto 10px auto;
+}
+
+.editing .link{
+  display: block;
+  width: 350px;
+  margin: 10px auto 10px auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+
+/* Statements especially for the Navigationbar*/
+header{
+    font-family: 'Permanent Marker', cursive;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+header img{
+  height: 200px;
+}
+
+header ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar-left li, .navbar-right li{
+    float: left;
+}
+
+.navbar-left li a, .navbar-right li a{
+    display: block;
+    font-size: 30px;
+    padding: 25px;
+    padding-top: 150px;
+    padding-bottom: 0px;
+    text-decoration: none;
+    color:black;
+    transition: 0.3s ease-out;
+}
+
+.nav_toggle{
+  display: none;
+}
+
+.nav_toggle i{
+  font-size: 60px;
+}
+
+
+
+/* DROPDOWN Navbar */
+
+.dropdown_menu{
+  display: none;
+  position: absolute;
+  right: 3rem;
+  top: 225px;
+  width: 400px;
+  background: rgba(194, 194, 194, 0.75);
+  border-radius: 25% 10%;
+  z-index: 95;
+}
+
+.dropdown_menu.open{
+  display: block;
+}
+
+.dropdown_menu li a{
+  display: block;
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  
+
+}
+
+li a:hover{
+  color: var(--decotation_purple);
+  text-decoration: overline;
+}
+/* Statements especially for the footer */
+
+footer{
+  margin-top: var(--margin_top);
+  margin-bottom: 0;
+  display: grid;
+  text-align: center;
+  grid-template-rows: 100px 100px;
+  grid-template-columns: repeat(7, 1fr);font-size: 20px;
+  gap: 20px;
+}
+footer a i{
+  color: var(--decotation_purple);
+  font-size: 60px;
+}
+.logo1{
+  grid-row: 1 / 1;
+  grid-column: 3/3;
+  
+}
+
+.logo2{
+  grid-row: 1/1;
+  grid-column: 4/4;
+  
+}
+
+.logo3{
+  grid-row: 1/1;
+  grid-column: 5/5;
+  
+}
+
+.description{
+  grid-row: 2/2;
+  grid-column: 1/8;
+  font-size: 20px;
+}
+
+/* Statements for Login */
+#login{
+  margin-top: var(--margin_top);
+  display: flex;
+  justify-content:center;
+}
+
+#login .wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 21rem;
+}
+
+#login .wrapper label, input, button{
+  display: block;
+  margin: 5px 0 5px 0;
+}
+
+/* Statements for Register */
+#register{
+  margin-top: var(--margin_top);
+  display: flex;
+  justify-content:center;
+}
+
+#register .wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 21rem;
+}
+
+#register .wrapper label, input, button{
+  display: block;
+  margin: 5px 0 5px 0;
+}
+
+/* Statements for showing recipies*/
+.rezeptanzeige{
+  margin-left: auto;
+  margin-right: auto;
+}
+#recipe{
+  padding-left: 60px;
+}
+.obereHaelfte{
+  margin-top: var(--margin_top);
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  grid-gap: 50px;
+}
+
+.obenLinks{
+  height: 400px;
+  width: 300px;
+  padding: 20px;
+  padding-bottom: 40px;
+  transform: rotate(-2deg);
+  box-shadow: 0 6px 10px rgba(19, 12, 12, 0.3);
+}
+
+#hinzufuegen{
+  padding-bottom: 80px;
+}
+.obenLinks img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.obenRechts h1{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.iconlist{
+  display: grid;
+  grid-template-columns: 60px 60px 60px 60px 60px 60px 60px;
+  grid-gap: 10px;
+}
+
+.iconlist img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.addFavos{
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.addFavos i{
+  color: rgb(255, 174, 0);
+}
+
+.addFavos .btn{
+  margin-left: 15px;
+  
+}
+.untereHaelfte{
+  padding-left: 60px;
+  margin-top: var(--margin_top);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Statements for apology.html */
+#apology{
+  margin-top: var(--margin_top);
+  text-align: center;
+}
+
+
+
+
+/* Statements to make the Webpage responsive */
+.container {
+    max-width: 1536px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  /* 2xl */
+  @media (max-width: 1536px) {
+    .container {
+      max-width: 1280px;
+    }
+  }
+  
+  /* xl */
+  @media (max-width: 1280px) {
+    .container {
+      max-width: 1024px;
+    }
+
+    .nav_toggle{
+      display:block;
+    }
+
+    .navbar-left,
+    .navbar-right{
+      display: none;
+    }
+  }
+  
+  /* lg */
+  @media (max-width: 1024px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+  
+  /* md */
+  @media (max-width: 768px) {
+    .container {
+      max-width: 640px;
+    }
+    header img{
+      padding-top: 50px;
+      height: 150px;
+    }
+    
+    .obereHaelfte{
+      display: block;
+      grid-template-columns: unset;
+      grid-gap: unset;
+    }
+    .obenLinks{
+      aspect-ratio: 3/4;
+      height: unset;
+      width: 75%;
+    }
+
+    .obenRechts h1{
+      margin-top: 30px;
+    }
+
+    .untereHaelfte{
+      padding-left: unset;
+      display: unset;
+      margin-top: unset;
+    }
+    .ingridients{
+      margin-top: 30px;
+    }
+    .making{
+      margin-top: 30px;
+    }
+
+    .dropdown_menu{
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+  }
+  
+  /* sm */
+  @media (max-width: 640px) {
+    .container {
+      max-width: 475px;
+    }
+    
+    
+  }
+  
+  /* xs */
+  @media (max-width: 475px) {
+    .container {
+      width: 400px;
+    }
+  }

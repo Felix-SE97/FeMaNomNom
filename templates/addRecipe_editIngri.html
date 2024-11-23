@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    edit recipe
+{% endblock %}
+
+{% block main %}
+<section id="recipe" class="recipeIngri">
+    <div class="editing">
+        <form action="/editIngri/{{pos}}" method="post">
+            <input type="text" name="editedIngridientName" value="{{rezept.ingridients[pos]}}">
+            <div class="zentrierung">
+            <button class="btn" type="submit">safe ingridient</button>
+            <a class="btn link" href="/deleteIngri/{{pos}}">delete ingridient</a>
+            </div>
+        </form>
+    </div>
+    <div class = "rezeptanzeige">
+        <div class="obereHaelfte">
+            <div id = "hinzufuegen" class="obenLinks">
+                {% if rezept.picture == "/static/images/meal_default.png"%}
+                <img src="{{rezept.picture}}" alt="foodpicture">
+                <form action="/changePic" enctype="multipart/form-data" method="post">
+                <input  type="file" name="recipePic">
+                <button class="btn" type="submit">change Pic</button>
+                </form>
+                {% else %}
+                <img src="{{rezept.picture}}" alt="foodpicture">
+                {% endif %}
+            </div>
+                
+
+            {% if rezept.title == "blank" %}
+            <div class="obenRechts">
+                <form action="/setName" method="post">
+                <h1>Title:</h1>
+                <input type="text" name="recipeTitle">
+                
+                
+                <div class="zeile">
+                <input type="checkbox" id="bakery" name="bakery" value="True">
+                <label for="bakery">&nbsp; bakery</label>
+                </div>
+
+                <div class="zeile">                  
+                <input type="checkbox" id="meal" name="meal" value="True">
+                <label for="meal">&nbsp; meal</label>
+                </div>
+                <div class="zeile">    
+                <input type="checkbox" id="vegie" name="vegie" value="True">
+                <label for="vegie">&nbsp; vegetarian</label>
+                </div>
+                <div class="zeile">
+                <input type="checkbox" id="vegan" name="vegan" value="True">
+                <label for="vegan">&nbsp; vegan</label>
+                </div>
+                <div class="zeile">
+                <input type="checkbox" id="gluten" name="gluten" value="True">
+                <label for="gluten">&nbsp; gluten</label>
+                </div>
+                <div class="zeile">
+                <input type="checkbox" id="lactose" name="lactose" value="True">
+                <label for="lactose">&nbsp; lactose</label>
+                </div>
+                <button class="btn" type="submit">set name</button>
+                </form>
+            </div>
+            
+            {% else %}
+            <div class="obenRechts">
+                <h1>{{rezept.title}}</h1>
+                <p>created by</p>
+            
+                <div class="iconlist">
+                    <div class="desert">
+                        <img src="/static/src/dessert.jpg" alt="desert">
+                    </div>
+                    <div class="meal">
+                        <img src="/static/src/meal.png" alt="meal">
+                    </div>
+                    <div class="bakery">
+                        <img src="/static/src/bakery.png" alt="bakery">
+                    </div>
+                    
+                    <div class="vegie">
+                        <img src="/static/src/vegetarisch.jpg" alt="vegie">
+                    </div>
+                    <div class="vegan">
+                        <img src="/static/src/vegan.jpg" alt="vegan">
+                    </div>
+                    <div class="gluten">
+                        <img src="/static/src/gluten.jpg" alt="glutenfree">
+                    </div>
+                    <div class="lactose">
+                        <img src="/static/src/laktose.jpg" alt="lactosefree">
+                    </div>
+                </div> 
+            </div>
+            {% endif %}
+        </div>
+
+
+        <div class="untereHaelfte">
+            <div class="ingriedents">
+                <h2>Ingredients:</h2>
+                <ul>
+                    {% for item in rezept.ingridients %}
+                    <li><p>{{item}} &nbsp; <a href="/editIngri/{{rezept.ingridients.index(item)}}"><i class="bi bi-pencil-fill"></i></a></p></li>
+                    {% endfor %}
+                </ul>
+                <form action="/addIngridient" method="post">
+                    <input type="text" name="ingridientName">
+                    <button class="btn" type="submit">add ingridient</button>
+                </form>
+            </div>
+
+            <div class="making">
+                <h2>Preparation:</h2>
+                <ol>
+                    {% for item in rezept.preparation %}
+                    <li><p>{{item}} &nbsp; <a href="/editPrep/{{rezept.preparation.index(item)}}"><i class="bi bi-pencil-fill"></i></a></p></li>
+                    {% endfor %}
+                </ol>
+                <form action="/addPreparation" method="post">
+                    <input type="text" name="preparationName">
+                    <button class="btn" type="submit">add Preparation</button>
+                </form>
+            </div>
+            
+        </div>
+        <div class="addKnoepfe">
+            <div>
+            <form action="/wipeRecipe" method="post">
+                <button class="btn" type="submit">clear</button>
+            </form>
+            </div>
+            <div>
+            <form action="/saveRecipe" method="post">
+                <button class="btn" type="submit">add Recipe</button>
+            </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{rezept.title}}
+{% endblock %}
+
+{% block main %}
+<section id="recipe">
+    <div class = "rezeptanzeige">
+        <div class="obereHaelfte">
+            <div class="obenLinks">
+                <img src={{rezept.bild}} alt="food">
+            </div>
+                
+            <div class="obenRechts">
+                <h1>{{rezept.title}}</h1>
+                {% if favos == 0 %}
+                <div class="addFavos">
+                    <i class="bi bi-star"></i>
+                    <a href="/addFavos/{{rezept.id}}" class="btn">add to favourites</a>
+                    
+                </div>
+                {% else %}
+                <div class="addFavos">
+                    <i class="bi bi-star-fill"></i>
+                    <a href="/removeFavos/{{rezept.id}}" class="btn">remove from favourites</a>
+                </div>
+                {% endif %}
+
+                <p>created by: {{userdata.username}}</p>
+                
+                <!-- Icon Block für Rezept-Kategorie und Allergene -->
+                <div class="iconlist">
+                    {% if rezept.desert %}
+                    <div class="desert">
+                        <img src="/static/src/dessert.jpg" alt="desert">
+                    </div>
+                    {% endif %}
+
+                    {% if rezept.meal %}
+                    <div class="meal">
+                        <img src="/static/src/meal.png" alt="meal">
+                    </div>
+                    {% endif %}
+
+                    {% if rezept.bakery %}
+                    <div class="bakery">
+                        <img src="/static/src/bakery.png" alt="bakery">
+                    </div>
+                    {% endif %}
+                    
+                    {% if rezept.vegie %}
+                    <div class="vegie">
+                        <img src="/static/src/vegetarisch.jpg" alt="vegie">
+                    </div>
+                    {% endif %}
+
+                    {% if rezept.vegan %}
+                    <div class="vegan">
+                        <img src="/static/src/vegan.jpg" alt="vegan">
+                    </div>
+                    {% endif %}
+
+                    {% if rezept.gluten %}
+                    <div class="gluten">
+                        <img src="/static/src/gluten.jpg" alt="glutenfree">
+                    </div>
+                    {% endif %}
+
+                    {% if rezept.lactose %}
+                    <div class="lactose">
+                        <img src="/static/src/laktose.jpg" alt="lactosefree">
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="untereHaelfte">
+            <div class="ingriedents">
+                <h2>Ingredients:</h2>
+                <ul>
+                    {% for zutat in zutaten %}
+                    <li><p>{{zutat.zutat}}</p></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="making">
+                <h2>Preparation:</h2>
+                <ol>
+                    {% for anweisung in anweisungen %}
+                    <li><p>{{anweisung.anweisung}}</p></li>
+                    {% endfor %}
+                </ol>
+            </div>
+            
+        </div>
+    </div>
+
+</section>
+{% endblock %}

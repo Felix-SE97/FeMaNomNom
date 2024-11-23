@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    
+{% endblock %}
+
+{% block main %}
+<section class="filter">
+    <p>filter</p>
+    <div class="toggleArrow"> 
+        <i class="bi bi-chevron-compact-down"></i>
+    </div>
+</section>
+<section>
+    <form id="selection" class="dropdownFilter" action="/" method="post">
+        <div class="food">
+            <div class="zeile">
+            <input type="checkbox" id="bakery" name="bakery" value="bakery" checked>
+            <label for="bakery"> &nbsp; bakery</label>
+            </div>
+            <div class="zeile">
+            <input type="checkbox" id="meal" name="meal" value="meal" checked>
+            <label for="meal">&nbsp; meal</label>
+            </div>
+            <div class="zeile">
+            <input type="checkbox" value="desert" name="desert" checked>
+            <label for="desert">&nbsp; desert</label>
+            </div>
+        </div>
+        <div class="limitation">
+            <div class="zeile">
+            <input type="checkbox" id="vegetarian" name="vegie" value="vegetarian">
+            <label for="vegetarian">&nbsp; vegetarian</label>
+            </div>
+            <div class="zeile">
+            <input type="checkbox" id="vegan" name="vegan" value="vegan">
+            <label for="vegan">&nbsp; vegan</label>
+            </div>
+            <div class="zeile">
+            <input type="checkbox" id="lactosefree" name="lactose" value="lactosefree">
+            <label for="lactosefree">&nbsp; lactosefree</label>
+            </div>
+            <div class="zeile">
+            <input type="checkbox" id="glutenfree" name="gluten" value="glutenfree">
+            <label for="glutenfree">&nbsp; glutenfree</label>
+            </div>
+        </div>
+        <button class="btn" type="submit">Submit</button>
+    </form>
+</section>
+<section id="home">
+    {% for item in rezepte %}
+        <div class="item">
+            <img src={{item.bild}} alt="food">
+            <div class="item-content">
+                <h3>{{item.title}}</h3>
+                <p> Creator: {{item.username}}</p>
+                <div class="iconlist starticons">
+                
+                    {% if item.desert %}
+                    <div class="desert">
+                        <img src="/static/src/dessert.jpg" alt="desert">
+                    </div>
+                    {% endif %}
+
+                    {% if item.meal %}
+                    <div class="meal">
+                        <img src="/static/src/meal.png" alt="meal">
+                    </div>
+                    {% endif %}
+
+                    {% if item.bakery %}
+                    <div class="bakery">
+                        <img src="/static/src/bakery.png" alt="bakery">
+                    </div>
+                    {% endif %}
+                    
+                    {% if item.vegie %}
+                    <div class="vegie">
+                        <img src="/static/src/vegetarisch.jpg" alt="vegie">
+                    </div>
+                    {% endif %}
+
+                    {% if item.vegan %}
+                    <div class="vegan">
+                        <img src="/static/src/vegan.jpg" alt="vegan">
+                    </div>
+                    {% endif %}
+
+                    {% if item.gluten %}
+                    <div class="gluten">
+                        <img src="/static/src/gluten.jpg" alt="glutenfree">
+                    </div>
+                    {% endif %}
+
+                    {% if item.lactose %}
+                    <div class="lactose">
+                        <img src="/static/src/laktose.jpg" alt="lactosefree">
+                    </div>
+                    {% endif %}
+                </div>
+        
+                <!-- Knopf zum Rezept -->
+                <a href="/recipe/{{item.rezept_id}}" class="btn">Show Recipe</a>
+            </div>
+        </div>
+    {% endfor %}
+    
+</section>
+<script>
+    const toggleArrow = document.querySelector('.toggleArrow');
+    const toggleFilterIcon = document.querySelector('.toggleArrow i');
+    const dropDownFilter = document.querySelector('.dropdownFilter');
+
+    toggleArrow.addEventListener('click', () => {
+        dropDownFilter.classList.toggle('open');
+        const isOpen = dropDownFilter.classList.contains('open')
+
+        toggleFilterIcon.classList = isOpen
+        ? 'bi bi-chevron-compact-up' 
+        : 'bi bi-chevron-compact-down'
+            
+    });
+</script>
+{% endblock %}
